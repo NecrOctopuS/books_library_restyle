@@ -21,7 +21,7 @@ py main.py
  и `--end_page`, страница на которой заканчивается скачивание, по умолчанию 701.
 
 ```commandline
-py main.py --start_page 100 --end_page 200
+python3 main.py --start_page 100 --end_page 200
 ```
 В этом случае скачаются книги со страницы 100 по страницу 200 с сайта [tululu.org](http://tululu.org/l55/).
 
