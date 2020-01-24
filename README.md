@@ -12,6 +12,12 @@ pip install -r requirements.txt
 ```
 
 ### Аргументы
+
+Создайте файл `.env` и в него пропишите:
+```
+BOOK_INFORMATION_FILE_NAME='book_informations.json' #ваше название файла, куда будет сохраняться информация по книгам.
+``` 
+
 Для запуска программы необходимо написать в терминале следующее:
 ```commandline
 python3 main.py

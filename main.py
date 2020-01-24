@@ -6,6 +6,7 @@ from urllib.parse import urljoin
 from parse_tululu_category import get_book_urls_from_category_url
 import json
 import argparse
+from dotenv import load_dotenv
 
 FANTASTIC_CATEGORY_URL = 'http://tululu.org/l55/'
 
@@ -88,6 +89,7 @@ if __name__ == '__main__':
                 'genres': genres,
             }
             books.append(book)
-
-    with open("book_informations.json", "w", encoding='utf8') as my_file:
+    load_dotenv()
+    file_name = os.getenv('BOOK_INFORMATION_FILE_NAME')
+    with open(file_name, "w", encoding='utf8') as my_file:
         json.dump(books, my_file, sort_keys=True, indent=4, ensure_ascii=False)
