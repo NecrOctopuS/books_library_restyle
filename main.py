@@ -51,17 +51,13 @@ def get_title_and_author_from_soup(soup):
 
 def get_comments_from_soup(soup):
     comments_tags = soup.select('div.texts span')
-    comments = []
-    for comment_tag in comments_tags:
-        comments.append(comment_tag.text)
+    comments = [comment_tag for comment_tag in comments_tags]
     return comments
 
 
 def get_genres_from_soup(soup):
     genre_tags = soup.select('span.d_book a')
-    genres = []
-    for genre_tag in genre_tags:
-        genres.append(genre_tag.text)
+    genres = [genre_tag for genre_tag in genre_tags]
     return genres
 
 
