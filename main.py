@@ -75,7 +75,7 @@ if __name__ == '__main__':
         title, author = get_title_and_author_from_soup(soup)
         comments = get_comments_from_soup(soup)
         genres = get_genres_from_soup(soup)
-        image_url = urljoin('http://tululu.org', soup.select_one('div.bookimage img')['src'])
+        image_url = urljoin('http://tululu.org/', soup.select_one('div.bookimage img')['src'])
         book_id = book_url.strip('/').split('/')[-1].strip('b')
         txt_url = f'http://tululu.org/txt.php?id={book_id}'
         book_path = download_txt(txt_url, title)
