@@ -63,7 +63,11 @@ if __name__ == '__main__':
     parser = createParser()
     args = parser.parse_args()
     books = []
-    book_urls = get_book_urls_from_category_url(FANTASTIC_CATEGORY_URL, args.start_page, args.end_page)
+    try:
+        book_urls = get_book_urls_from_category_url(FANTASTIC_CATEGORY_URL, args.start_page, args.end_page)
+    except requests.exceptions.HTTPError as err:
+        print(err)
+        exit(-1)
     for book_url in book_urls:
         response = requests.get(book_url, allow_redirects=False)
         response.raise_for_status()

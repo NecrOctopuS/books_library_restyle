@@ -9,6 +9,7 @@ def get_book_urls_from_category_url(category_url, start_page, end_page):
     while page <= end_page:
         url = f'{category_url}{page}/'
         response = requests.get(url)
+        response.raise_for_status()
         soup = BeautifulSoup(response.text, 'lxml')
         books = soup.select('table.d_book')
         for book in books:
