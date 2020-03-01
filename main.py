@@ -66,7 +66,8 @@ if __name__ == '__main__':
     try:
         book_urls = get_book_urls_from_category_url(FANTASTIC_CATEGORY_URL, args.start_page, args.end_page)
     except requests.exceptions.HTTPError as err:
-        print(err)
+        print(f'На данный момент {FANTASTIC_CATEGORY_URL} недоступна. Либо вы ввели начальную и конечную страницу вне '
+              f'возможного диапазона.')
         exit(-1)
     for book_url in book_urls:
         response = requests.get(book_url, allow_redirects=False)
