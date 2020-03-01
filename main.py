@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 FANTASTIC_CATEGORY_URL = 'http://tululu.org/l55/'
 
 
-def createParser():
+def create_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('--start_page', default=1, type=int)
     parser.add_argument('--end_page', default=701, type=int)
@@ -60,7 +60,7 @@ def get_genres_from_soup(soup):
 
 
 if __name__ == '__main__':
-    parser = createParser()
+    parser = create_parser()
     args = parser.parse_args()
     books = []
     try:
