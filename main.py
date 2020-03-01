@@ -79,8 +79,16 @@ if __name__ == '__main__':
         image_url = urljoin('http://tululu.org/', soup.select_one('div.bookimage img')['src'])
         book_id = book_url.strip('/').split('/')[-1].strip('b')
         txt_url = f'http://tululu.org/txt.php?id={book_id}'
-        book_path = download_txt(txt_url, title)
-        image_src = download_image(image_url, image_url.split('/')[-1])
+        try:
+            book_path = download_txt(txt_url, title)
+        except requests.exceptions.HTTPError:
+            print(f'Не удалось скачать книгу {title}(((')
+            book_path = None
+        try:
+            image_src = download_image(image_url, image_url.split('/')[-1])
+        except requests.exceptions.HTTPError:
+            print(f'Не удалось скачать обложку книги {title}(((')
+            image_src = None
         book = {
                 'title': title,
                 'author': author,
